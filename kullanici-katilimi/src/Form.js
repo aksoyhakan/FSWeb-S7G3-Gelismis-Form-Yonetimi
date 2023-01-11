@@ -15,6 +15,46 @@ const dummyNewMember = {
   usingCondition: false,
 };
 
+const SCMainForm = styled.form`
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 0.25rem solid blue;
+`;
+
+const SCFormDiv = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const SCLabelDiv = styled.div`
+  width: 45%;
+  text-align: left;
+`;
+
+const SCInputDiv = styled.div`
+  width: 45%;
+  text-align: left;
+`;
+
+const SCLabel = styled.label`
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+`;
+
+const SCInput = styled.input`
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+`;
+
+const SCSubmitDiv = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+`;
+
 const Form = (props) => {
   const {
     newMember,
@@ -30,46 +70,6 @@ const Form = (props) => {
   const [focus, setFocus] = useState(dummyFocus);
 
   console.log(newMember);
-
-  const SCMainForm = styled.form`
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: 0.25rem solid blue;
-  `;
-
-  const SCFormDiv = styled.div`
-    display: flex;
-    width: 100%;
-  `;
-
-  const SCLabelDiv = styled.div`
-    width: 45%;
-    text-align: left;
-  `;
-
-  const SCInputDiv = styled.div`
-    width: 45%;
-    text-align: left;
-  `;
-
-  const SCLabel = styled.label`
-    display: block;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-  `;
-
-  const SCInput = styled.input`
-    display: block;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-  `;
-
-  const SCSubmitDiv = styled.div`
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
-  `;
 
   const handleMemberData = (event) => {
     console.log("içerdema");
@@ -106,7 +106,6 @@ const Form = (props) => {
             type="text"
             value={newMember.name}
             onChange={(event) => handleMemberData(event)}
-            autoFocus={focus.name}
           ></SCInput>
           <SCInput
             id="email"
@@ -114,7 +113,6 @@ const Form = (props) => {
             type="email"
             value={newMember.email}
             onChange={(event) => handleMemberData(event)}
-            autoFocus={focus.email}
           ></SCInput>
           <SCInput
             id="password"
@@ -122,7 +120,6 @@ const Form = (props) => {
             type="password"
             value={newMember.password}
             onChange={(event) => handleMemberData(event)}
-            autoFocus={focus.password}
           ></SCInput>
         </SCInputDiv>
       </SCFormDiv>

@@ -6,6 +6,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Error from "./Error";
 import Register from "./Register";
+import styled from "styled-components";
 
 const dummyMember = {
   name: "",
@@ -30,11 +31,15 @@ const formTemplate = Yup.object().shape({
     .email("Lütfen geçerli bir email adresi girin")
     .required("Email zorunludur."),
   name: Yup.string()
+    .required("İsim soyisim doldurulması zorunludur.")
     .min(minLengthName, "İsim-soyisim en az 5 harf girilmesi gerekmektedir.")
-    .required("İsim soyisim doldurulması zorunludur."),
+    .matches(" ", "Soyadınızı giriniz."),
   password: Yup.string()
     .min(minLengthPassword, "Şifre uzunluğu en az 8 farf olması gerekmetkedir.")
-    .matches(passwordRules, "Güçlü şifre giriniz")
+    .matches(
+      passwordRules,
+      "Büyük ve küçük harler ile en az bir tane işaret girilmesi gerekmektedir"
+    )
     .required("Şifre giriniz"),
   usingCondition: Yup.boolean().oneOf(
     [true],
@@ -109,6 +114,7 @@ function App() {
         registerBoolean={registerBoolean}
         setRegisterBoolean={setRegisterBoolean}
         registeredMember={registeredMember}
+        setNewMember={setNewMember}
       ></Register>
     </div>
   );

@@ -1,8 +1,20 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
+const dummyNewMember = {
+  name: "",
+  email: "",
+  password: "",
+  usingCondition: false,
+};
+
 const Register = (props) => {
-  const { registerBoolean, setRegisterBoolean, registeredMember } = props;
+  const {
+    registerBoolean,
+    setRegisterBoolean,
+    registeredMember,
+    setNewMember,
+  } = props;
 
   const SCRegisterDiv = styled.div`
     max-width: 600px;
@@ -17,7 +29,8 @@ const Register = (props) => {
     setTimeout(() => {
       console.log("içerde");
       setRegisterBoolean(false);
-    }, 5000);
+      setNewMember(dummyNewMember);
+    }, 10000);
   }, [registerBoolean]);
 
   return (
