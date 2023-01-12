@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const dummyFocus = {
-  name: false,
-  email: false,
-  password: false,
-  usingCondition: false,
-};
-
 const dummyNewMember = {
   name: "",
   email: "",
@@ -67,8 +60,6 @@ const Form = (props) => {
     setRegisterBoolean,
   } = props;
 
-  const [focus, setFocus] = useState(dummyFocus);
-
   console.log(newMember);
 
   const handleMemberData = (event) => {
@@ -79,7 +70,7 @@ const Form = (props) => {
     if (type === "checkbox") newValue = checked;
     checkError(name, newValue);
     setNewMember({ ...newMember, [name]: newValue });
-    setFocus({ ...dummyFocus, [name]: true });
+
     console.log(newMember);
   };
 
@@ -105,12 +96,14 @@ const Form = (props) => {
             name="name"
             type="text"
             value={newMember.name}
+            data-cs="name"
             onChange={(event) => handleMemberData(event)}
           ></SCInput>
           <SCInput
             id="email"
             name="email"
             type="email"
+            data-cs="email"
             value={newMember.email}
             onChange={(event) => handleMemberData(event)}
           ></SCInput>
@@ -118,6 +111,7 @@ const Form = (props) => {
             id="password"
             name="password"
             type="password"
+            data-cs="password"
             value={newMember.password}
             onChange={(event) => handleMemberData(event)}
           ></SCInput>
@@ -131,6 +125,7 @@ const Form = (props) => {
           id="usingCondition"
           name="usingCondition"
           type="checkbox"
+          data-cs="terms"
           checked={newMember.usingCondition}
           onChange={(event) => handleMemberData(event)}
         ></input>
@@ -142,6 +137,7 @@ const Form = (props) => {
               marginRight: "3rem",
             }}
             type="submit"
+            data-cs="submit"
             disabled={submitDisabled}
           >
             Kaydet
@@ -149,6 +145,7 @@ const Form = (props) => {
           <button
             style={{ display: "inline-block", width: "10rem" }}
             type="reset"
+            data-cs="reset"
             disabled={
               newMember.name === "" &&
               newMember.email === "" &&

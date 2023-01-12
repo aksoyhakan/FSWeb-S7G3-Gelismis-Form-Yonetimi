@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Form from "./Form";
 import * as Yup from "yup";
@@ -46,6 +45,13 @@ const formTemplate = Yup.object().shape({
     "Kabul şartlarını onaylamanız gerekir"
   ),
 });
+
+const SCBodyDiv = styled.div`
+  max-width: 800px;
+  margin: 2rem auto;
+  height: 80vh;
+  border: 0.5rem solid black;
+`;
 
 function App() {
   const [newMember, setNewMember] = useState(dummyMember);
@@ -98,7 +104,8 @@ function App() {
   }
 
   return (
-    <div>
+    <SCBodyDiv>
+      <p></p>
       <Form
         submitDisabled={submitDisabled}
         newMember={newMember}
@@ -116,7 +123,7 @@ function App() {
         registeredMember={registeredMember}
         setNewMember={setNewMember}
       ></Register>
-    </div>
+    </SCBodyDiv>
   );
 }
 
