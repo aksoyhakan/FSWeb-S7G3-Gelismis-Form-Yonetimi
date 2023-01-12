@@ -20,7 +20,7 @@ const Error = (props) => {
   let errorsArray = Object.values(errors);
   return (
     <SCErrorMainDiv>
-      <SCErrorDiv errorBoolean={errorBoolean}>
+      <SCErrorDiv data-cs="error" errorBoolean={errorBoolean}>
         {errorsArray.map((item) => (
           <p>{item}</p>
         ))}

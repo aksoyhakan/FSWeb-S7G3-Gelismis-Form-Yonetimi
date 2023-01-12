@@ -34,7 +34,7 @@ const Register = (props) => {
   }, [registerBoolean]);
 
   return (
-    <SCRegisterDiv registerBoolean={registerBoolean}>
+    <SCRegisterDiv data-cs="register" registerBoolean={registerBoolean}>
       <p>
         {registeredMember.id} kayıt numaralı {registeredMember.name} adlı
         müşterimiz başarılı bir şekilde kayıt olmuştur.
